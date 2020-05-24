@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" charset="utf-8">
+<title>Controle de Alunos</title>
+<link href="/imagens/pp.png" rel="icon" type="image/x-icon" />
+
+<!-- WEBJARS -->
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+</head>
+<body>
+	<!-- Barra de Menu -->
+	<section th:insert="barra_de_menu :: barra_de_menu"></section>
+	<section class="container mt-2">
+		<div class="row justify-content-center">
+			<div class="col-12 col-sm-8 col-md-6 rounded" style="background-color: #e3f2fd;">
+				<form enctype="multipart/form-data" th:object="${codigo}">
+					
+					<div class="row">
+						<div class="col-12 mt-4">
+							<h5 class="text-center">Relatórios</h5>
+						</div>
+						<div class="col-12 mt-2">
+					        <label>Código*</label>
+					        <input class="form-control" th:field="*{texto}" type="password" required/>
+	        				<p class="text-danger text-center m-0 p-0" th:each="erro : ${#fields.errors('texto')}" th:text="${erro}"></p>
+        				</div>								
+					</div>					
+					<div class="row justify-content-end">
+						<div class="col-auto mt-3 mb-3">
+							<button class="btn btn-primary btn-sm" formmethod="post" type="submit" th:formaction="@{/relatorio}">Gerar Relarório</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<section th:insert="mensagem :: mensagem"></section>
+	</section>
+	
+	<script th:if="${sucesso != null || erro != null}" type="text/javascript">
+		$("#mensagem").modal("show");	
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" charset="utf-8">
+<title>Controle de Alunos</title>
+<link href="/imagens/pp.png" rel="icon" type="image/x-icon" />
+
+<!-- WEBJARS -->
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+</head>
+<body>
+	<section th:fragment="barra_de_menu">
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+			<a class="navbar-brand h5" th:href="@{/}"><img src="/imagens/p.png">   Controle de Alunos</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav pl-2">
+					<li class="nav-item pl-2 ml-auto">
+						<a class="nav-link" th:href="@{/aluno}">Presença de Alunos</a>
+					</li>
+					<li class="nav-item pl-2">
+						<a class="nav-link text-danger" th:href="@{/relatorio}">Relatórios</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+</body>
+</html>
